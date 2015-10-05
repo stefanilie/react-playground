@@ -10,11 +10,9 @@ var styles = React.StyleSheet.create({
 });
 
 class PropertyFinderApp extends React.Component {
-  render(){
-    return React.createElement(React.text, {style: styles.text}, "Hello World!");
+  render() {
+    return React.createElement(React.Text, {style: styles.text}, "Hello World!");
   }
 }
 
-React.AppRegistry.registerComponent(
-  'PropertyFinder', function() {return PropertyFinderApp}
-);
+React.AppRegistry.registerComponent('PropertyFinder', function() { return PropertyFinderApp });
