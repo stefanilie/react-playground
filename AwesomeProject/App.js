@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, StyleSheet, TextInput } from 'react-native';
+import { AppRegistry, Text, View, StyleSheet, TextInput, Button, Alert, ScrollView, DatePickerIOS } from 'react-native';
+import DatePocker from './DatePicker';
 
 class Blick extends Component {
 
@@ -28,17 +29,54 @@ class PizzaTranslator extends Component {
     super(props);
     this.state = {text: ''};
   }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true,
+    });
+  }
+
   render() {
     return(
       <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={styles.flexBlue}>
+        {/* add here after on click button, to change the state and display the 'translation' */}
           <Blick proptext={this.state.text.split(' ').map((word)=>word && '🍕').join(' ')} styleProp={styles.emoji}/>
         </View>
         <View style={styles.flexNavy}>
           <Blick proptext={this.state.text.split(' ').map((word)=>word && '🍕').join(' ')} styleProp={styles.emoji}/>
         </View>
         <View style={styles.flexSteel}>
-          <TextInput style={styles.emoji} placeholder="Type here to translate!" onChangeText={(text)=>this.setState({text})} />
+          <View>
+            <TextInput style={styles.emoji} placeholder="Type here to translate!" onChangeText={(text)=>this.setState({text})} />
+          </View>
+          <View style= {{flexDirection: 'row', justifyContent: "space-between"}}>
+            <Button onPress={()=> {
+              Alert.alert('Translation made!');
+
+            }}
+            title="change state"
+            color="red"
+            />
+            <Button onPress={() =>{
+              Alert.alert("Deleted translation!")
+            }}
+            title="delete state"
+            color="gray"
+            />
+          </View>
+          <View>
+            <Button onPress={() =>{
+              this._onButtonClick
+            }}
+            title="open date picker"
+            color="gray"
+            />
+            {
+              this.state.showComponent ?
+                <DatePicker /> : null
+            }
+          </View>
         </View>
       </View>
     )
@@ -71,12 +109,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  flexSteel :{
+  flexSteel: {
     flex: 3,
     backgroundColor: 'steelblue',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+
 });
 
 
