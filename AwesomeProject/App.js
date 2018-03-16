@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, StyleSheet, TextInput, Button, Alert, ScrollView, DatePickerIOS } from 'react-native';
-import DatePocker from './DatePicker';
+import DatePicker from './DatePicker';
+import ExpandableCell from './ExpandableCell'
 
 class Blick extends Component {
 
@@ -66,7 +67,10 @@ class PizzaTranslator extends Component {
             />
           </View>
           <View>
-            <Button onPress={() =>{
+           <ExpandableCell style={styles.flexPicker}>
+            <DatePicker/>
+           </ExpandableCell>
+          {/*   <Button onPress={() =>{
               this._onButtonClick
             }}
             title="open date picker"
@@ -75,7 +79,7 @@ class PizzaTranslator extends Component {
             {
               this.state.showComponent ?
                 <DatePicker /> : null
-            }
+            }          */}
           </View>
         </View>
       </View>
@@ -115,6 +119,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  flexPicker: {
+    flex: 4
+  }
 
 });
 
