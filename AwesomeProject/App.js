@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { AppRegistry, Text, View, StyleSheet, TextInput, Button, Alert, ScrollView, DatePickerIOS } from 'react-native';
 import DatePicker from './DatePicker';
 import ExpandableCell from './ExpandableCell'
-=======
-import { AppRegistry, Text, View, StyleSheet, TextInput } from 'react-native';
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
 
 class Blick extends Component {
 
@@ -34,7 +30,6 @@ class PizzaTranslator extends Component {
     super(props);
     this.state = {text: ''};
   }
-<<<<<<< HEAD
 
   _onButtonClick() {
     this.setState({
@@ -42,23 +37,17 @@ class PizzaTranslator extends Component {
     });
   }
 
-=======
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
   render() {
     return(
       <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={styles.flexBlue}>
-<<<<<<< HEAD
         {/* add here after on click button, to change the state and display the 'translation' */}
-=======
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
           <Blick proptext={this.state.text.split(' ').map((word)=>word && '🍕').join(' ')} styleProp={styles.emoji}/>
         </View>
         <View style={styles.flexNavy}>
           <Blick proptext={this.state.text.split(' ').map((word)=>word && '🍕').join(' ')} styleProp={styles.emoji}/>
         </View>
         <View style={styles.flexSteel}>
-<<<<<<< HEAD
           <View>
             <TextInput style={styles.emoji} placeholder="Type here to translate!" onChangeText={(text)=>this.setState({text})} />
           </View>
@@ -92,9 +81,6 @@ class PizzaTranslator extends Component {
                 <DatePicker /> : null
             }          */}
           </View>
-=======
-          <TextInput style={styles.emoji} placeholder="Type here to translate!" onChangeText={(text)=>this.setState({text})} />
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
         </View>
       </View>
     )
@@ -127,24 +113,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-<<<<<<< HEAD
   flexSteel: {
-=======
-  flexSteel :{
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
     flex: 3,
     backgroundColor: 'steelblue',
     justifyContent: 'center',
     alignItems: 'center',
-<<<<<<< HEAD
   },
   flexPicker: {
     flex: 4
   }
 
-=======
-  }
->>>>>>> c00cdc8f32f8c4300085e0e7e4773e7173065d01
 });
 
 
