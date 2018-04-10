@@ -1,5 +1,5 @@
 {
-  "name": "piechart_example",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -19,15 +19,11 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "art": "^0.10.1",
-        "d3": "^4.2.7",
-        "d3-array": "^1.0.0",
-        "d3-path": "^1.0.0",
-        "d3-scale": "^1.0.0",
-        "d3-format": "^1.0.0",
-        "d3-shape": "^1.0.0",
-        "d3-axis": "^1.0.0",
-        "react": "16.3.0-alpha.1",
-        "react-native": "0.54.0"
+    "art": "^0.10.2",
+    "d3": "^5.0.0",
+    "d3-shape": "^1.2.0",
+    "expo": "^26.0.0",
+    "react": "16.3.0-alpha.1",
+    "react-native": "0.54.0"
   }
 }
