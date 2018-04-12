@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
   View,
+  TouchableOpacity
 } from 'react-native';
 
 import Pie from './Pie'
@@ -29,6 +30,8 @@ constructor(props) {
   this.state = {
     activeIndex: 0,
     spendingsPerYear: data.spendingsPerYear,
+    pieWidth: 140,
+    pieHeight: 140
   };
   this._onPieItemSelected = this._onPieItemSelected.bind(this);
   this._shuffle = this._shuffle.bind(this);
@@ -45,7 +48,14 @@ _shuffle(a) {
     }
     return a;
 }
+changeSize(){
+  if(this.state.pieHeight==140){
+    this.setState({...this.state, pieHeight: 50, pieWidth: 50})
+  } else {
+    this.setState({...this.state, pieHeight: 140, pieWidth: 140})
+  }
 
+}
   render() {
     const height = 200;
     const width = 500;
@@ -55,14 +65,18 @@ _shuffle(a) {
         <View style={styles.container} >
           <Text style={styles.chart_title}>Distribution of spending this month</Text>
           <Pie
-            pieWidth={150}
-            pieHeight={150}
+            pieWidth={this.state.pieWidth}
+            pieHeight={this.state.pieHeight}
             onItemSelected={this._onPieItemSelected}
             colors={Theme.colors}
             width={width}
             height={height}
             data={data.spendingsLastMonth} />
-          <Text style={styles.chart_title}>Spending per year in {data.spendingsLastMonth[this.state.activeIndex].name}</Text>
+        </View>
+        <View style={styles.button}>
+            <TouchableOpacity onPress={()=>this.changeSize()}>
+              <Text>Ceva se intampla aici</Text>
+            </TouchableOpacity>
         </View>
       </ScrollView>
     );
@@ -83,5 +97,9 @@ const styles = {
     backgroundColor:'white',
     color: 'grey',
     fontWeight:'bold',
+  },
+  button: {
+    backgroundColor: 'red',
+    marginTop:30
   }
 }
