@@ -49,8 +49,8 @@ class Pie extends React.Component {
 
   state: State;
 
-  constructor(props: Props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { highlightedIndex: 0 };
     this._createPieChart = this._createPieChart.bind(this);
     this._value = this._value.bind(this);
@@ -95,6 +95,11 @@ class Pie extends React.Component {
   _onPieItemSelected(index) {
     this.setState({...this.state, highlightedIndex: index});
     this.props.onItemSelected(index);
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log("=============Availability props after update========")
+    console.log(prevProps)
   }
 
   render() {
